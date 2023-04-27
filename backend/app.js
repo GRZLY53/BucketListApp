@@ -20,14 +20,15 @@ app.use(async function (req, res, next) {
 const storage = multer.diskStorage({
     destination: function(req,file,cb) {
         cb(null,'uploads')
-    }
+    },
     filename: function(req,file,cb) {
         cb(null,`${file.originalname}-${Date.now()}`)
     }
 })
 
-//all the different routes for the database
+//all the different routes for the database are below here
 
+//this is a route for the standard backend to see if we can reach it
 app.get("/", (req,res) => {
     res.send("hallo welt")
 })
