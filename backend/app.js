@@ -15,8 +15,6 @@ app.use(async function (req, res, next) {
     next();
 });
 
-const upload = multer({ storage });
-
 //create a disk storage for all the uploads
 const storage = multer.diskStorage({
     destination: function(req,file,cb) {
@@ -26,6 +24,9 @@ const storage = multer.diskStorage({
         cb(null,`${file.originalname}-${Date.now()}`)
     }
 })
+
+const upload = multer({ storage });
+
 
 //all the different routes for the database are below here
 
