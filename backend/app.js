@@ -11,9 +11,7 @@ app.use(cors());
 
 //connection to the database that marvin created
 app.use(async function (req, res, next) {
-    await mongoose.connect(
-      "mongodb+srv://marvimarv:voLFoE5hHcQ1XZBg@db-bucketlistbuddies.kyh0mlf.mongodb.net/test"
-    );
+    await mongoose.connect(process.env.MONGODB_URI);
     next();
 });
 
